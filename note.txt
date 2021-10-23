@@ -1,0 +1,18 @@
+CRUD => Join 
+
+Category 
+   -> Sub Category 
+      -> Child Category
+
+Electronic One => Many
+   -> Computer Many => One
+      -> Dell
+      -> Mac 
+   -> Phone
+      -> iPhone
+      -> Xiaomi
+      -> Samsung
+Category 
+   name => "Electronic" , image => "image.png"  id = 20
+Subcat 
+  id = 1,  name => "Computer" , image => "image.png" , category_id = 20

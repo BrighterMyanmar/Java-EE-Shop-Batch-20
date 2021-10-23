@@ -1,9 +1,17 @@
 package r.r.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Category {
@@ -14,6 +22,10 @@ public class Category {
    String name;
    String image;
 
+   @JsonManagedReference
+   @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+   @JoinColumn(name = "category_id")
+   List<Subcat> subcats;
 
    public Category() {
    }
@@ -25,10 +37,6 @@ public class Category {
 
    public int getId() {
       return this.id;
-   }
-
-   public void setId(int id) {
-      this.id = id;
    }
 
    public String getName() {
@@ -45,6 +53,14 @@ public class Category {
 
    public void setImage(String image) {
       this.image = image;
+   }
+
+   public List<Subcat> getSubcats() {
+      return this.subcats;
+   }
+
+   public void setSubcats(List<Subcat> subcats) {
+      this.subcats = subcats;
    }
 
    public String toString() {
