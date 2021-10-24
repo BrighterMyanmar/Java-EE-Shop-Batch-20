@@ -1,3 +1,12 @@
+Tag => (Popular, Most Wishes, laster, Flash Sale, Tatain)
+
+-> Model/ Entity
+-> Repository
+-> DTO 
+-> Service 
+-> Implementation
+-> Controller
+
 CRUD => Join 
 
 Category 
@@ -16,3 +25,11 @@ Category
    name => "Electronic" , image => "image.png"  id = 20
 Subcat 
   id = 1,  name => "Computer" , image => "image.png" , category_id = 20
+
+Childcat 
+   -> Model 
+   -> Repository
+   -> DTO
+   -> Service
+   -> Implementation
+   -> Controller

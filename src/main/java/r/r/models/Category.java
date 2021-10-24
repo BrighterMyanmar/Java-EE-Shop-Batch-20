@@ -23,7 +23,7 @@ public class Category {
    String image;
 
    @JsonManagedReference
-   @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
    @JoinColumn(name = "category_id")
    List<Subcat> subcats;
 
