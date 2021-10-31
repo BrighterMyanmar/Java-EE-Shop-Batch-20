@@ -23,4 +23,12 @@ public class ImageUploadService {
       }
       return filename;
    }
+
+   public String saveFiles(MultipartFile files[]) {
+      String filenames = "";
+      for (MultipartFile file : files) {
+         filenames += "," + saveFile(file);
+      }
+      return filenames.substring(1);
+   }
 }

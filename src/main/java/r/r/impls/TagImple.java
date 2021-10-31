@@ -25,13 +25,14 @@ public class TagImple implements TagService {
    }
 
    @Override
-   public Tag save(TagDto tagDto) {
+   public String save(TagDto tagDto) {
       Tag tag = new Tag();
       System.out.println("We are here!");
       System.out.println(tagDto.getName());
       tag.setName(tagDto.getName());
       tag.setImage(imageUploadService.saveFile(tagDto.getFile()));
-      return tagRepo.save(tag);
+      tagRepo.save(tag);
+      return "Tag Save Success";
    }
 
    @Override

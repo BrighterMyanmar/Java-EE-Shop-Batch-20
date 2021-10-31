@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,18 +31,17 @@ public class TagController {
    }
 
    @PostMapping
-   public ResponseEntity<Tag> save(@Valid @ModelAttribute TagDto tagDto, BindingResult result) {
+   public ResponseEntity<String> save(@Valid @ModelAttribute TagDto tagDto, BindingResult result) {
       if (result.hasErrors()) {
-         try {
-            throw new Exception("Model Validation Error");
-         } catch (Exception e) {
-            e.printStackTrace();
+         List<FieldError> fieldErrorList = result.getFieldErrors();
+         StringBuilder sb = new StringBuilder();
+         for (FieldError fieldError : fieldErrorList) {
+            sb.append(fieldError.getDefaultMessage() + "\n");
          }
+         return ResponseEntity.ok(sb.toString());
       } else {
-         System.out.println("Aung Tal");
          return ResponseEntity.ok(tagService.save(tagDto));
       }
-      return ResponseEntity.ok(tagService.save(tagDto));
    }
 
    @GetMapping

@@ -9,7 +9,7 @@ import r.r.models.Tag;
 
 @Service
 public interface TagService {
-   Tag save(TagDto tagDto);
+   String save(TagDto tagDto);
 
    Tag get(int id);
 

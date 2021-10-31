@@ -2,11 +2,12 @@ package r.r.dtos;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
 public class TagDto {
-   @NotBlank(message = "Name is Required")
+   @Size(min = 3, max = 30, message = "Size must be between 3 to 30")
    String name;
    @NotNull(message = "Image is Required")
    MultipartFile file;
