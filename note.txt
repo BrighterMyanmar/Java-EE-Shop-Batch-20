@@ -1,5 +1,11 @@
 Tag => (Popular, Most Wishes, laster, Flash Sale, Tatain)
 
+ROLE_AMDIN, 
+Category All => All 
+Category Create => ROLE_MANAGER, ROLE_ADMIN 
+Category Edit => ROLE_MANAGER, ROLE_ADMIN 
+Category DELETE => ROLE_ADMIn
+
 -> Model/ Entity
 -> Repository
 -> DTO 
@@ -33,3 +39,9 @@ Childcat
    -> Service
    -> Implementation
    -> Controller
+
+   User 1 => Mg Mg
+
+   users_roles ()
+
+   ROLE 6 => Manager

@@ -8,4 +8,5 @@ import r.r.dtos.UserDto;
 @Service
 public interface UserService extends UserDetailsService {
    String register(UserDto userDto);
+   String addRole(int userId,int roleId);
 }

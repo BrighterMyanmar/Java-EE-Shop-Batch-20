@@ -6,10 +6,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import r.r.dtos.UserDto;
@@ -44,6 +44,11 @@ public class AuthController {
    @PostMapping("/register")
    public ResponseEntity<String> save(@ModelAttribute UserDto userDto) {
       return ResponseEntity.ok(userService.register(userDto));
+   }
+
+   @PatchMapping("/addRole/{userId}/{roleId}")
+   public ResponseEntity<String> addRole(@PathVariable("userId") int userId, @PathVariable("roleId") int roleId) {
+      return ResponseEntity.ok(userService.addRole(userId, roleId));
    }
 
 }
